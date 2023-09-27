@@ -3,9 +3,9 @@ package main
 import (
 	"net/http"
 
-	"github.com/Android-Jester/Bank-Queue-Go/src/interface/analytics"
-	"github.com/Android-Jester/Bank-Queue-Go/src/interface/client"
-	"github.com/Android-Jester/Bank-Queue-Go/src/interface/server"
+	"github.com/Android-Jester/bank_queue_backend_go/src/interface/analytics"
+	"github.com/Android-Jester/bank_queue_backend_go/src/interface/client"
+	"github.com/Android-Jester/bank_queue_backend_go/src/interface/server"
 	"github.com/gin-gonic/gin"
 )
 

@@ -1,7 +1,7 @@
 package server
 
 import (
-	"net/http"
+	http "net/http"
 
 	"github.com/gin-gonic/gin"
 )
@@ -14,5 +14,7 @@ func Routes(group *gin.RouterGroup) {
 }
 
 func LoginRoute(context *gin.Context) {
-	// context.JSON(http.StatusOK, )
+	data := make(map[string]interface{})
+	data["Hello"] = "hi"
+	context.JSON(http.StatusOK, data)
 }
