@@ -1,18 +1,11 @@
 package analytics
 
-import (
-	http "net/http"
+import "github.com/gofiber/fiber/v2"
 
-	"github.com/gin-gonic/gin"
-)
-
-func Routes(group *gin.RouterGroup) {
-	group.GET("/", LoginRoute)
-	group.GET("/print", LoginRoute)
+func Routes(rt fiber.Router) {
+	rt.Post("/report", reportRoute)
 }
 
-func LoginRoute(context *gin.Context) {
-	data := make(map[string]interface{})
-	data["Hello"] = "hi"
-	context.JSON(http.StatusOK, data)
+func reportRoute(ctx *fiber.Ctx) error {
+	return ctx.JSON(make(map[string]interface{}))
 }

@@ -1,20 +1,11 @@
 package server
 
-import (
-	http "net/http"
+import "github.com/gofiber/fiber/v2"
 
-	"github.com/gin-gonic/gin"
-)
-
-func Routes(group *gin.RouterGroup) {
-	group.GET("/login", LoginRoute)
-	group.GET("/dismiss", LoginRoute)
-	group.GET("/complete", LoginRoute)
-
+func Routes(rt fiber.Router) {
+	rt.Post("/login", loginRoute)
 }
 
-func LoginRoute(context *gin.Context) {
-	data := make(map[string]interface{})
-	data["Hello"] = "hi"
-	context.JSON(http.StatusOK, data)
+func loginRoute(ctx *fiber.Ctx) error {
+	return ctx.JSON(make(map[string]interface{}))
 }

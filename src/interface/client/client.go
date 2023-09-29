@@ -1,20 +1,34 @@
 package client
 
-import (
-	http "net/http"
+import "github.com/gofiber/fiber/v2"
 
-	"github.com/gin-gonic/gin"
-)
-
-func Routes(group *gin.RouterGroup) {
-	group.GET("/login", LoginRoute)
-	group.GET("/leave", LoginRoute)
-	group.GET("/join", LoginRoute)
-
+func Routes(rt fiber.Router) {
+	rt.Post("/login", loginRoute)
+	rt.Post("/guest/login", guestLoginRoute)
+	rt.Post("/join", joinQueueRoute)
+	rt.Post("/leave", leaveQueueRoute)
 }
 
-func LoginRoute(context *gin.Context) {
-	data := make(map[string]interface{})
-	data["Hello"] = "hi"
-	context.JSON(http.StatusOK, data)
+func loginRoute(ctx *fiber.Ctx) error {
+
+	ctx.Status(400)
+	return ctx.JSON(make(map[string]interface{}))
+}
+
+func guestLoginRoute(ctx *fiber.Ctx) error {
+
+	ctx.Status(400)
+	return ctx.JSON(make(map[string]interface{}))
+}
+
+func joinQueueRoute(ctx *fiber.Ctx) error {
+
+	ctx.Status(400)
+	return ctx.JSON(make(map[string]interface{}))
+}
+
+func leaveQueueRoute(ctx *fiber.Ctx) error {
+
+	ctx.Status(400)
+	return ctx.JSON(make(map[string]interface{}))
 }
